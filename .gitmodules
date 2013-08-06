@@ -43,3 +43,9 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "bundle\\airline"]
+	path = bundle\\airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "bundle\\ozzy"]
+	path = bundle\\ozzy
+	url = https://github.com/gcmt/ozzy.vim.git

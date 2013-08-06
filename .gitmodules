@@ -1,3 +1,9 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+[submodule "bundle/easytags"]
+	path = bundle/easytags
+	url = git@github.com:xolox/vim-easytags.git
+[submodule "minibufexpl.vim"]
+	path = minibufexpl.vim
+	url = https://github.com/fholgado/minibufexpl.vim.git

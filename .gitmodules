@@ -7,3 +7,6 @@
 [submodule "minibufexpl.vim"]
 	path = minibufexpl.vim
 	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/minubufexpl"]
+	path = bundle/minubufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git

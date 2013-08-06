@@ -61,3 +61,6 @@
 [submodule "bundle\\delimiteMate"]
 	path = bundle\\delimiteMate
 	url = https://github.com/Raimondi/delimitMate.git
+[submodule "bundle\\nocturne"]
+	path = bundle\\nocturne
+	url = https://github.com/euclio/vim-nocturne.git

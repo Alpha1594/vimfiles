@@ -10,3 +10,6 @@
 [submodule "bundle/minubufexpl"]
 	path = bundle/minubufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git

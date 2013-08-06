@@ -49,3 +49,6 @@
 [submodule "bundle\\ozzy"]
 	path = bundle\\ozzy
 	url = https://github.com/gcmt/ozzy.vim.git
+[submodule "bundle\\CamelCaseMotion"]
+	path = bundle\\CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion.git

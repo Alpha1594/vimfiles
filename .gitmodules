@@ -58,3 +58,6 @@
 [submodule "bundle\\misc"]
 	path = bundle\\misc
 	url = https://github.com/xolox/vim-misc.git
+[submodule "bundle\\delimiteMate"]
+	path = bundle\\delimiteMate
+	url = https://github.com/Raimondi/delimitMate.git

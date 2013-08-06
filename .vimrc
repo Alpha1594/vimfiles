@@ -232,7 +232,7 @@ set stl=%f%y\ %F\ %m\%r%=Col:%v\ Line:%l/%L[%p%%]\ Buf:#%n\ [%b][0x%B]
 " :! start http://www.google.com
 
 function! Jesus()
-	!vimfiles\man.bat
+	!vimfiles\batcave\man.bat
 	qa
 endfunc
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

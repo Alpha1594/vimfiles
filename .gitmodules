@@ -64,3 +64,6 @@
 [submodule "bundle\\nocturne"]
 	path = bundle\\nocturne
 	url = https://github.com/euclio/vim-nocturne.git
+[submodule "snipM"]
+	path = bundle/snipM
+	url = https://github.com/msanders/snipmate.vim.git

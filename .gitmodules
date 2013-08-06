@@ -25,3 +25,18 @@
 [submodule "bundle/speeddating"]
 	path = bundle/speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/colorizer"]
+	path = bundle/colorizer
+	url = https://github.com/lilydjwg/colorizer.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "airline"]
+	path = airline
+	url = https://github.com/bling/vim-airline.git
+[submodule "snipmate"]
+	path = snipmate
+	url = https://github.com/msanders/snipmate.vim.git

@@ -135,10 +135,13 @@ function! InsertStatuslineColor(mode)"{{{
   endif
 endfunction"}}}
 " }}}
+
 iabbrev eml alpha1594@gmail.com
+iabbrev @@ alpha1594@gmail.com
 iabbrev teh the
 iabbrev Voldemort The Dark Lord (Don't talk about Potter)
 cabbrev ls ls!
+
 "GUI Tweaks"{{{
 au InsertLeave * hi statusline guibg=#303030 guifg=#666666  ctermfg=8 ctermbg=15
 

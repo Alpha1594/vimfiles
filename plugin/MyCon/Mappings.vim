@@ -4,6 +4,8 @@ nmap <leader>x :w<cr>:!chmod 755 %<cr>:e<cr>
 imap <c-u> <Esc>viw~i
 inoremap jk <Esc>
 inoremap kj <Esc>
+nnoremap <esc> :echo "Nope >^.^<"<cr>
+inoremap <silent> <esc> <esc>:echo "Nope >^.^<"<cr>:2sleep<cr>a
 "}}}
 
 " FunctionKeys "{{{
@@ -132,18 +134,6 @@ vnoremap > >gv
 " Jump to matching pairs easily, with Tab
 nnoremap <Tab> %
 vnoremap <Tab> %
-
-" nnoremap ' `
-" nnoremap ` '
-
-" Remap ^0 to first non-blank character
-nnoremap <S-0> ^
-
-iab xdate <c-r>=strftime("%d/%m/%y %H:%M.%S")<cr>
-
-" make p in Visual mode replace the selected text with the yank register
-vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
-
 
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w " Split line (sister to [J]oin lines)
 

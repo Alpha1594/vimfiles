@@ -67,3 +67,6 @@
 [submodule "snipM"]
 	path = bundle/snipM
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule ".\\bundle\\ColorHighlight"]
+	path = .\\bundle\\ColorHighlight
+	url = https://github.com/chrisbra/color_highlight.git

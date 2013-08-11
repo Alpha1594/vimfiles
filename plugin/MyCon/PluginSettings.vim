@@ -23,9 +23,10 @@
 " Colorizer"{{{
 	let g:colorizer_auto_filetype='css,html,vim'
 	let g:colorizer_skip_comments = 1
-	let g:colorizer_nomap = 1
-	let g:colorizer_startup = 0
-	nnorem <leader>ct :ColorToggle<CR>
+	" let g:colorizer_nomap = 1
+	" let g:colorizer_startup = 0
+    let g:colorizer_x11_names = 1
+    let g:colorizer_syntax = 1
 "}}}
 " solarized"{{{
 	let g:solarized_termcolors= 256

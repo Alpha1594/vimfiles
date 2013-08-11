@@ -83,6 +83,7 @@ nnoremap <leader>z :%s/\<<C-r>=expand("<cword>")<CR>\>/
 nnoremap <leader>cd :lcd %:p:h<cr>:pwd<cr>
 " Remove the Windows ^M - when the encodings gets messed up
 nnoremap <leader>c :nohlsearch<CR>:redraw!<CR>
+nnoremap <leader>ct :ColorToggle<CR>
 
 nnoremap <leader>md :%!C:\Users\Andrew\Documents\Markdown_1.0.1\Markdown.pl --html4tags<cr>
 
@@ -165,8 +166,3 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 " As above for lowercase
 " inoremap <C-l> <esc>mzguiw`za
 " }}}
-
-map ]] j0[[%/{<CR> 
-map ][ /}<CR>b99]} 
-map [[ ?{<CR>w99[{ 
-map [] k$][%?}<CR> 

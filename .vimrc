@@ -6,13 +6,46 @@ set shellslash
 set mousehide
 set foldopen=block,insert,hor,mark,percent,quickfix,search,tag,undo
 cd $HOME
-execute pathogen#infect()
-" call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" execute pathogen#infect()
+" call pathogen#helptags()
 let $CS = $HOME."\\Documents\\Visual Studio 2012\\Projects"
 let $Dropbox = $HOME."\\Dropbox"
 let $vimFiles = $HOME."\\vimfiles"
 let $Bundle = $vimFiles."\\bundle"
+if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+ endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Recommended to install
+" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+NeoBundle 'Shougo/vimproc'
+
+	" url = git@github.com:xolox/vim-easytags.git
+
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'bkad/CamelCaseMotion'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'chrisbra/color_highlight'
+NeoBundle 'euclio/vim-nocturne'
+NeoBundle 'fholgado/minibufexpl.vim'
+" NeoBundle 'gcmt/ozzy.vim'
+NeoBundle 'lilydjwg/colorizer'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'msanders/snipmate.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-commentary'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-speeddating'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'xolox/vim-misc'
+NeoBundleCheck
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,"{{{
 " so that you can undo CTRL-U after inserting a line break.
@@ -166,7 +199,7 @@ set statusline=
 " set statusline+=FMT:%{&ff}:	" file format
 " set statusline+=%{strlen(&fenc)?&fenc:'none'}	"file encoding
 " 	set statusline+=%=
-" 
+"
 " 	set statusline+=%3*%<\ 	"TruncationPoint
 " set statusline+=C:%02v\ 	" current column where cursor is
 " set statusline+=Line:%l/%L[%p%%]\	" line X of Y [percent of file]
@@ -186,7 +219,7 @@ set guioptions-=g	" Remove inactive menu options
 set linespace=5                 " Extra pixel lines between rows
 set guitablabel=%M\ %t
 " }}}
-" Courier New=11 
+" Courier New=11
 if has('statusline')
 	set statusline=%1*%f\ 						" Filename
 		set statusline+=%2*						" User Col 2
@@ -201,23 +234,23 @@ if has('statusline')
 	set statusline+=%<0x\%04.4B 				" Hex code of character under the cursor
 endif
 " Autocommands"{{{
-" Always show line numbers, but only in current window.
+"	Always show line numbers, but only in current window.
 set number
-au WinEnter * :setlocal number
-au WinEnter * :setlocal foldcolumn=2
-au WinLeave * :setlocal nonumber
-au WinLeave * :setlocal foldcolumn=0
+au WinEnter * :setlocal number au WinEnter * :setlocal foldcolumn=2
+au WinLeave * :setlocal nonumber au WinLeave * :setlocal foldcolumn=0
 " Save when losing focus
-au FocusLost * :silent! wall
-au VimResized * :wincmd = " Resize splits when the window is resized
-au FileType c,cpp,java,php,javascript,python,xml,yml,css autocmd BufWritePre <buffer> call StripTrailingWhitespace() " Remove trailing whitespaces and ^M chars
-au FileType c,cpp,cs,java set matchpairs+==:;	"Appends [StartChar]:[EndChar]; to % toggle group
-au FileType tex,plaintex setlocal spell
+au FocusLost * :silent! wall au VimResized * :wincmd = " Resize splits when
+" the window is resized au FileType c,cpp,java,php,javascript,python,xml,yml,css
+autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+" Remove trailing whitespaces and ^M chars
+au FileType c,cpp,cs,java set matchpairs+==:;
+"Appends [StartChar]:[EndChar]; to % toggle group au FileType tex,plaintex
+setlocal spell
 " au FileType xhtml,xml so ~/.vim/ftplugin/html_autoclosetag.vim
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 " The PC is fast enough, do syntax highlight syncing from start
 autocmd BufEnter * :syntax sync fromstart
-autocmd BufRead,BufNewFile *.nspk set filetype=newspeak
+autocmd BufRead,BufNewFile *.nspk :set filetype=newspeak
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 "}}}

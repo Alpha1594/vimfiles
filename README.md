@@ -1,6 +1,10 @@
 vimfiles
 ========
-A collection of my vim settings and plugi-ins. If all goes to plan this will use a submodule system.
+A collection of my vim settings and plug-ins.
+
+Have now switched to neocomplete, below git commands no longer relevant.
+
+If all goes to plan this will use a submodule system.> {{{
 
 NOTE if following instructions that refer to `origin` substitute `real`. Not for personal preference but  because git couldn't take it.
 
@@ -22,4 +26,4 @@ NOTE if following instructions that refer to `origin` substitute `real`. Not for
 
 ### Updating subodules
 	cd $BUNDLES
-	git submodule foreach git pull origin master
+	git submodule foreach git pull origin master> }}}

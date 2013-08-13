@@ -38,12 +38,12 @@
 	let g:solarized_style     = "dark"
 	set background=dark
 "}}}
-"delimitMate "{{{
+"delimitMate{{{
 	let delimitMate_balance_matchpairs = 1
 	let delimitMate_nesting_quotes = ['"','`']
 	" let delimitMate_excluded_regions = "Comment,String,Todo"
 "}}}
-" Ozzy"{{{
+" Ozzy{{{
 	let g:ozzy_root_markers = ['.git', '.hg', '.svn', 'AndroidManifest.xml', '.sln']
 "}}}
 "airline"{{{
@@ -71,10 +71,24 @@ let g:hardtime_default_on = 1
 let g:hardtime_timeout=5
 let g:list_of_normal_keys = [ "h", "j", "k", "l", "-", "+"]
 "}}}
-" Tagbar {{{
+" Tagbar{{{
 	let g:tagbar_compact = 1
 	let g:tagbar_autoshowtag = 1
 	autocmd BufWinEnter,WinEnter "__Tagbar__" :setlocal nonumber
+"}}}
+" Unite"{{{
+	" File in .
+	nnoremap <leader>f :<C-u>Unite file<CR>
+
+	" FuzzyFinder
+	call unite#filters#matcher_default#use(['matcher_fuzzy'])
+	nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
+
+	" Most recently used files:
+	nnoremap <leader>m :<C-u>Unite file_mru<CR>
+
+	" To see buffers, recent files then bookmarks:
+	nnoremap <silent> <leader>b :<C-u>Unite buffer file_mru bookmark<CR>
 "}}}
 
 

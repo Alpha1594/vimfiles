@@ -33,7 +33,6 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'chrisbra/color_highlight'
 NeoBundle 'euclio/vim-nocturne'
 NeoBundle 'fholgado/minibufexpl.vim'
-" NeoBundle 'gcmt/ozzy.vim'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'msanders/snipmate.vim'
@@ -45,6 +44,8 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'xolox/vim-misc'
+
+NeoBundle 'Shougo/unite.vim'
 NeoBundleCheck
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,"{{{
@@ -236,21 +237,30 @@ endif
 " Autocommands"{{{
 "	Always show line numbers, but only in current window.
 set number
-au WinEnter * :setlocal number au WinEnter * :setlocal foldcolumn=2
-au WinLeave * :setlocal nonumber au WinLeave * :setlocal foldcolumn=0
+au WinEnter * :setlocal number
+au WinEnter * :setlocal foldcolumn=2
+au WinLeave * :setlocal nonumber
+au WinLeave * :setlocal foldcolumn=0
+
 " Save when losing focus
-au FocusLost * :silent! wall au VimResized * :wincmd = " Resize splits when
-" the window is resized au FileType c,cpp,java,php,javascript,python,xml,yml,css
-autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+au FocusLost * :silent! wall
+
+" au VimResized * :wincmd = " Resize splits when the window is resized
+" au FileType c,cpp,java,php,javascript,python,xml,yml,css
+
 " Remove trailing whitespaces and ^M chars
-au FileType c,cpp,cs,java set matchpairs+==:;
+autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
 "Appends [StartChar]:[EndChar]; to % toggle group au FileType tex,plaintex
+au FileType c,cpp,cs,java set matchpairs+==:;
+
 setlocal spell
 " au FileType xhtml,xml so ~/.vim/ftplugin/html_autoclosetag.vim
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 " The PC is fast enough, do syntax highlight syncing from start
 autocmd BufEnter * :syntax sync fromstart
 autocmd BufRead,BufNewFile *.nspk :set filetype=newspeak
+
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 "}}}

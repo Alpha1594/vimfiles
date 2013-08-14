@@ -11,7 +11,7 @@ cd $HOME
 let $CS = $HOME."\\Documents\\Visual Studio 2012\\Projects"
 let $Dropbox = $HOME."\\Dropbox"
 let $vimFiles = $HOME."\\vimfiles"
-let $Bundle = $vimFiles."\\bundle"
+let $Bundle = $HOME."\\.vim\\bundle"
 if has('vim_starting')
    set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
@@ -20,33 +20,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Recommended to install
-" After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
-NeoBundle 'Shougo/vimproc'
-
-	" url = git@github.com:xolox/vim-easytags.git
-
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'bkad/CamelCaseMotion'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'chrisbra/color_highlight'
-NeoBundle 'euclio/vim-nocturne'
-NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'msanders/snipmate.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-speeddating'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'xolox/vim-misc'
-
-NeoBundle 'Shougo/unite.vim'
-NeoBundleCheck
+	NeoBundle 'Shougo/vimproc'
+	source C:/Users/Andrew/vimfiles/plugin/MyCon/PluginSettings.vim
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,"{{{
 " so that you can undo CTRL-U after inserting a line break.

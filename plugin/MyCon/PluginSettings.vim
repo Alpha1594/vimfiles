@@ -1,3 +1,32 @@
+"Neobundle"{{{
+		" url = git@github.com:xolox/vim-easytags.git
+
+	NeoBundle 'Lokaltog/vim-easymotion'
+	NeoBundle 'Raimondi/delimitMate'
+	NeoBundle 'bkad/CamelCaseMotion'
+	NeoBundle 'bling/vim-airline'
+	NeoBundle 'chrisbra/color_highlight'
+	NeoBundle 'euclio/vim-nocturne'
+	NeoBundle 'fholgado/minibufexpl.vim'
+	NeoBundle 'lilydjwg/colorizer'
+	NeoBundle 'majutsushi/tagbar'
+	NeoBundle 'msanders/snipmate.vim'
+	NeoBundle 'scrooloose/nerdtree'
+	NeoBundle 'scrooloose/syntastic'
+	NeoBundle 'tpope/vim-commentary'
+	NeoBundle 'tpope/vim-fugitive'
+	NeoBundle 'tpope/vim-repeat'
+	NeoBundle 'tpope/vim-speeddating'
+	NeoBundle 'tpope/vim-surround'
+	NeoBundle 'xolox/vim-misc'
+
+	NeoBundle 'Shougo/unite.vim'
+
+	NeoBundle 'godlygeek/tabular'
+	NeoBundle 'nathanaelkane/vim-indent-guides'
+	NeoBundle 'tpope/vim-abolish'
+	NeoBundleCheck
+"}}}
 " SnipMate"{{{
 	let g:snips_author = 'Andrew Stanton' " Setting the author var
 "}}}
@@ -89,6 +118,9 @@ let g:list_of_normal_keys = [ "h", "j", "k", "l", "-", "+"]
 
 	" To see buffers, recent files then bookmarks:
 	nnoremap <silent> <leader>b :<C-u>Unite buffer file_mru bookmark<CR>
+"}}}
+"Indent-guides"{{{
+  let g:indent_guides_enable_on_vim_startup = 1
 "}}}
 
 

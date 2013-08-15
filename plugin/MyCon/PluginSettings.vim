@@ -1,6 +1,4 @@
 "Neobundle"{{{
-		" url = git@github.com:xolox/vim-easytags.git
-
 	NeoBundle 'Lokaltog/vim-easymotion'
 	NeoBundle 'Raimondi/delimitMate'
 	NeoBundle 'bkad/CamelCaseMotion'
@@ -25,6 +23,10 @@
 	NeoBundle 'godlygeek/tabular'
 	NeoBundle 'nathanaelkane/vim-indent-guides'
 	NeoBundle 'tpope/vim-abolish'
+
+	NeoBundle 'nanotech/jellybeans.vim'
+	NeoBundle 'sjl/gundo.vim'
+	NeoBundle 'xolox/vim-easytags'
 	NeoBundleCheck
 "}}}
 " SnipMate"{{{
@@ -71,9 +73,6 @@
 	let delimitMate_balance_matchpairs = 1
 	let delimitMate_nesting_quotes = ['"','`']
 	" let delimitMate_excluded_regions = "Comment,String,Todo"
-"}}}
-" Ozzy{{{
-	let g:ozzy_root_markers = ['.git', '.hg', '.svn', 'AndroidManifest.xml', '.sln']
 "}}}
 "airline"{{{
 " let g:airline_enable_fugitive=1

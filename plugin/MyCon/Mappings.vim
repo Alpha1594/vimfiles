@@ -10,8 +10,8 @@ inoremap <silent> <esc> <esc>:echo "Nope >^.^<"<cr>:2sleep<cr>a
 
 " FunctionKeys "{{{
 nnoremap <F1> :h 
-nnoremap <F2> :so %<CR>
-nnoremap <S-F2> :so $MYVIMRC<CR>
+nnoremap <F2> :so %<CR>:echo "Source Completed"<CR>
+nnoremap <S-F2> :so $MYVIMRC<CR>:echo "Source vimrc"<CR>
 nnoremap <C-F2> :!pdflatex %<CR>
 nnoremap <F3> <Esc>:w
 nnoremap <S-F3> <Esc>:w!
@@ -100,12 +100,18 @@ nnoremap <left> <C-W>h
 nnoremap <right> <C-W>l
 nnoremap <up> <C-W>k
 nnoremap <down> <C-W>j
+
+inoremap <left> <ESC><C-W>h
+inoremap <right> <ESC><C-W>l
+inoremap <up> <ESC><C-W>k
+inoremap <down> <ESC><C-W>j
 "}}}
+" Smart way to move between windows
 nnoremap <silent><c-left> :tabprev<cr>
 nnoremap <silent><c-right> :tabnext<cr>
 nnoremap <silent><c-up> :tabfirst<cr>
 nnoremap <silent><c-down> :tablast<cr>
-"}}} Smart way to move between windows
+"}}}
 
 " Jump to matching pairs easily, with Tab
 nnoremap <Tab> %

@@ -20,7 +20,7 @@ nnoremap <S-F4> <Esc>:q!<CR>
 
 nnoremap <F5> mzggg?G`z " Rot13
 set pastetoggle=<F6>	"Toggles default formatting options on and off Use when inserting (pasting from clipboard)
-nnoremap <silent> <F7> :Ozzy<CR>
+" nnoremap <silent> <F7> :Ozzy<CR>
 nnoremap <silent> <S-F7> :TagbarToggle<CR>
 nnoremap <silent> <C-F7> :MBEToggle<CR>
 nnoremap <F8> :NERDTreeToggle<CR>

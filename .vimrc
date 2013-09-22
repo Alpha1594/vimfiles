@@ -1,17 +1,8 @@
 set nocompatible
-let maplocalleader = "|"
-" Use <localleader> in mappings
-au WinEnter,VimEnter :echo ">^.^<"
 set shellslash
-set mousehide
-set foldopen=block,insert,hor,mark,percent,quickfix,search,tag,undo
 cd $HOME
-" execute pathogen#infect()
-" call pathogen#helptags()
-let $CS = $HOME."\\Documents\\Visual Studio 2012\\Projects"
-let $Dropbox = $HOME."\\Dropbox"
-let $vimFiles = $HOME."\\vimfiles"
-let $Bundle = $HOME."\\.vim\\bundle"
+
+" Neobundle Startup"{{{
 if has('vim_starting')
    set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
@@ -22,17 +13,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 	NeoBundle 'Shougo/vimproc'
 	source C:/Users/Andrew/vimfiles/plugin/MyCon/PluginSettings.vim
+"}}}
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,"{{{
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>"}}}
-
-" When editing a file, always jump to the last known cursor position.
-  autocmd BufReadPost *
-	\ if line("'\"") > 1 && line("'\"") <= line("$") |
-	\   exe "normal! g`\"" |
-	\ endif
-  augroup END
 
 syntax on
 filetype on             " try to set the filetype automatically
@@ -195,50 +180,6 @@ set guioptions-=g	" Remove inactive menu options
 set linespace=5                 " Extra pixel lines between rows
 set guitablabel=%M\ %t
 " }}}
-" Courier New=11
-if has('statusline')
-	set statusline=%1*%f\ 						" Filename
-		set statusline+=%2*						" User Col 2
-	set statusline+=%(%W%M%)					" Preview, Modified/Readonly
-		set statusline+=%3*						" User Col 3
-	set statusline+=[%{&ff}/%Y]					" Fileformat & type
-	set statusline+=\[%{getcwd()}]				" Current dir
-		set statusline+=%=						" Right aligned
-		set statusline+=%4*						" User Col 4
-	set statusline+=%([%v,%l/%L]%)%p%%\ 		" File nav info
-		set statusline+=%5*						" User Col 5
-	set statusline+=%<0x\%04.4B 				" Hex code of character under the cursor
-endif
-" Autocommands"{{{
-"	Always show line numbers, but only in current window.
-set number
-au WinEnter * :setlocal number
-au WinEnter * :setlocal foldcolumn=2
-au WinLeave * :setlocal nonumber
-au WinLeave * :setlocal foldcolumn=0
-
-" Save when losing focus
-au FocusLost * :silent! wall
-
-" au VimResized * :wincmd = " Resize splits when the window is resized
-" au FileType c,cpp,java,php,javascript,python,xml,yml,css
-
-" Remove trailing whitespaces and ^M chars
-autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-"Appends [StartChar]:[EndChar]; to % toggle group au FileType tex,plaintex
-au FileType c,cpp,cs,java set matchpairs+==:;
-
-setlocal spell
-" au FileType xhtml,xml so ~/.vim/ftplugin/html_autoclosetag.vim
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-" The PC is fast enough, do syntax highlight syncing from start
-autocmd BufEnter * :syntax sync fromstart
-autocmd BufRead,BufNewFile *.nspk :set filetype=newspeak
-
-" auto reload vimrc when editing it
-autocmd! bufwritepost .vimrc source ~/.vimrc
-"}}}
 
 " OmniComplete
 if has("autocmd") && exists("+omnifunc")
@@ -247,18 +188,7 @@ if has("autocmd") && exists("+omnifunc")
 		\setlocal omnifunc=syntaxcomplete#Complete |
 		\endif
 endif
-set stl=%f%y\ %F\ %m\%r%=Col:%v\ Line:%l/%L[%p%%]\ Buf:#%n\ [%b][0x%B]
-" Filename FileType ModFlag ReadOnlyFlag ||Col Line OutOf Line% Buffer Char
-" OXChar
-" :! start http://www.google.com
-
-function! Jesus()
-	!vimfiles\batcave\man.bat
-	qa
-endfunc
 " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 	" vim:foldmethod=marker
 
 

@@ -7,6 +7,8 @@ inoremap kj <Esc>
 nnoremap <esc> :echo "Nope >^.^<"<cr>
 inoremap <silent> <esc> <esc>:echo "Nope >^.^<"<cr>:2sleep<cr>a
 "}}}
+let maplocalleader = "|"
+" Use <localleader> in mappings
 
 " FunctionKeys "{{{
 nnoremap <F1> :h 

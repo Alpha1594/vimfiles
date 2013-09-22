@@ -1,0 +1,18 @@
+Old statusline DEPd by airline
+if has('statusline')
+	set statusline=%1*%f\ 						" Filename
+		set statusline+=%2*						" User Col 2
+	set statusline+=%(%W%M%)					" Preview, Modified/Readonly
+		set statusline+=%3*						" User Col 3
+	set statusline+=[%{&ff}/%Y]					" Fileformat & type
+	set statusline+=\[%{getcwd()}]				" Current dir
+		set statusline+=%=						" Right aligned
+		set statusline+=%4*						" User Col 4
+	set statusline+=%([%v,%l/%L]%)%p%%\ 		" File nav info
+		set statusline+=%5*						" User Col 5
+	set statusline+=%<0x\%04.4B 				" Hex code of character under the cursor
+endif
+
+set stl=%f%y\ %F\ %m\%r%=Col:%v\ Line:%l/%L[%p%%]\ Buf:#%n\ [%b][0x%B]
+" Filename FileType ModFlag ReadOnlyFlag ||Col Line OutOf Line% Buffer Char
+" OXChar

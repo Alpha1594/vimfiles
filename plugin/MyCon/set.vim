@@ -1,11 +1,8 @@
 " See *format-comments*
 " Probation"{{{
-" set debug =throw,beep
-set guifont=Lucida_Console:h10:cANSI
-" Encryption
-set cryptmethod=blowfish
-set key=
-set shortmess=flmnrwxoOt
+	" Encryption
+	set cryptmethod=blowfish
+	set key=
 "}}}
 
 " File IO"{{{
@@ -41,15 +38,16 @@ set linebreak   " Wrap lines at convenient points
 "}}}
 
 " Indent & Whitespace"{{{
-set autoindent
-set copyindent
-set smartindent
-set tabstop=4					" A tab is four spaces
-set shiftwidth=4				" Number of spaces used for autoindenting
-set softtabstop=4               " When hitting <BS>, like a tab is removed, even if spaces
-set shiftround	  				" use multiple of shiftwidth when indenting with '<' and '>
-set smarttab					"insert tabs on the start of a line according to shiftwidth, not tabstop
-set noexpandtab "Prevents tabs becoming spaces
+	set autoindent
+	set copyindent
+	set smartindent
+	set tabstop=4					" A tab is four spaces
+	set shiftwidth=4				" Number of spaces used for autoindenting
+	set softtabstop=4               " When hitting <BS>, like a tab is removed, even if spaces
+	set shiftround	  				" use multiple of shiftwidth when indenting with '<' and '>
+	set smarttab					"insert tabs on the start of a line according to shiftwidth, not tabstop
+	set noexpandtab "Prevents tabs becoming spaces
+	set virtualedit=block,onemore   "Prevents cursor going past EOL, except for block selection
 "}}}
 
 " Autocompletion & Wildmenu"{{{
@@ -78,32 +76,80 @@ set synmaxcol=800 " Don't try to highlight lines longer than 800 characters.
 " set ttimeoutlen=10
 "}}}
 
-set showmode
-set showcmd	 					" display incomplete commands
+" Interface Mods"{{{
+	set shortmess=flmnrwxoOtI	"Use more concise messages
+	set lazyredraw "waits till macro is completed before re-rendering
+	set guifont=Lucida_Console:h10:cANSI
+	set showmode	" ?? Does Airline override this
+	set showcmd	 	" display incomplete commands
+	set colorcolumn=+1		"EOL column indicator
+	set list
+	set listchars=extends:»,precedes:»,trail:¤		" Tab & EOL determined per OS
+	set mouse=a " Enable mouse everywhere
+"}}}
 
-set lazyredraw "waits till macro is completed before re-rendering
+" Fold Options"{{{
+set foldmethod=marker
+set foldlevelstart=0	" All folds closed on open
+set mousehide
+set foldopen=block,insert,hor,mark,percent,quickfix,search,tag,undo"}}}
+
+" Filepath declarations"{{{
+let $CS = $HOME."\\Documents\\Visual Studio 2012\\Projects"
+let $Dropbox = $HOME."\\Dropbox"
+let $vimFiles = $HOME."\\vimfiles"
+let $Bundle = $HOME."\\.vim\\bundle"
+"}}}
+
+" Autocommands"{{{
+	"	Always show line numbers, but only in current window.
+	set number
+	au WinEnter * :setlocal number
+	au WinEnter * :setlocal foldcolumn=2
+	au WinLeave * :setlocal nonumber
+	au WinLeave * :setlocal foldcolumn=0
+
+	" Save when losing focus
+	au FocusLost * :silent! wall
+
+	" Remove trailing whitespaces and ^M chars
+	autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+
+	"Appends [StartChar]:[EndChar]; to % toggle group au FileType tex,plaintex
+	au FileType c,cpp,cs,java set matchpairs+==:;
+
+	setlocal spell
+	" au FileType xhtml,xml so ~/.vim/ftplugin/html_autoclosetag.vim
+	au InsertEnter * call InsertStatuslineColor(v:insertmode)
+	" The PC is fast enough, do syntax highlight syncing from start
+	autocmd BufEnter * :syntax sync fromstart
+	autocmd BufRead,BufNewFile *.nspk :set filetype=newspeak
+
+	" auto reload vimrc when editing it
+	autocmd! bufwritepost .vimrc source ~/.vimrc
+
+" When editing a file, always jump to the last known cursor position.
+  autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
+  augroup END
+"}}}
+
 set splitbelow "new split placed beneath current
 set splitright " New split place to the right of current
-
-set foldmethod=marker
-set virtualedit=block,onemore   "Prevents cursor going past EOL, except for block selection
 
 set scrolloff=5 "Keeps cursor line n lines from top&&bottom of form
 set sidescroll=1
 set sidescrolloff=10
 
-set colorcolumn=+1
-set mouse=a " Enable mouse everywhere
 set gdefault	"Global flag on for substitutions
 set linebreak
 set modelines=3	"First & Last 3 lines of file can contain vim cmds in format vim:cmd0:cmd1 cmd2 Use space|colon
 " set sps=best,30		"Spellsuggest type, lim
-set foldlevelstart=0	" All folds closed on open
 set printoptions=header:1,number:y	"Printout +lineNum
 set printheader=%t%m%<%f	" Filename ModFlag Filepath
 
-set list
-set listchars=extends:»,precedes:»,trail:¤		" Tab & EOL determined per OS
 
 if has("win32")
 	set listchars+=tab:►\ ,eol:¶
@@ -117,7 +163,7 @@ set vb t_vb=	"For terminal
 
 set diffopt=filler,iwhite       " ignore all whitespace and sync
 
-set formatoptions=cqrn1		"a
+set formatoptions=cqrn1
 " c		Auto-wrap comments, inserting the current comment leader
 " automatically. 
 
